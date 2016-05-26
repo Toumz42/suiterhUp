@@ -1,0 +1,250 @@
+.ui-menu {
+	width: 40px;
+	border:0px;
+	margin:0px;
+	background: #F7F7F7;
+}
+
+#navigationMenu ul{
+    margin:0px;
+	list-style:none;
+	padding:0px;
+	z-index:99;
+}
+#navigationMenu li{
+    margin:0px;
+	list-style:none;
+	height:39px;
+	padding:2px;
+	width:39px;
+
+}
+
+#navigationMenu span{
+	/* propriete du span icon */
+	width:0;
+	left:40px;
+	top:-1px;
+	padding:0px;
+	position:absolute;
+	overflow:hidden;
+
+	/* propriete text */
+	font-family:'Myriad Pro',Arial, Helvetica, sans-serif;
+	font-size:14px;
+	font-weight:bold;
+	letter-spacing:0.6px;
+	white-space:nowrap;
+	line-height:39px;
+
+	/* Transition: */
+	-webkit-transition: 0.25s;
+	-moz-transition: 0.25s;
+	transition: 0.25s;
+}
+
+#navigationMenu a{
+ 	border:0px;
+	height:39px;
+	width:38px;
+	display:block;
+	position:relative;
+	line-height:39px;
+    text-align:center;
+    vertical-align: middle;
+    font-size:14px;
+    font-weight:bold;
+    text-decoration:none;
+    text-shadow:1px 1px 0 #99bf31;
+}
+
+/* Gestion du  hover  */
+
+#navigationMenu a:hover span{
+	width:auto;
+	border:0px;
+	padding:0 20px;
+
+	overflow:visible;
+	z-index:999;
+	cursor:pointer
+	 }
+/*#navigationMenu a:hover{
+	text-decoration:none;
+	-moz-box-shadow:0 0 5px #9ddff5;
+	-webkit-box-shadow:0 0 5px #9ddff5;
+	box-shadow:0 0 5px #9ddff5;
+}*/
+
+/* boutons verts : deconnect home change pass */
+
+#navigationMenu .mdeconnect {background:url('/public/images/mexit.png') no-repeat;}
+#navigationMenu .mdeconnect span{
+	background-color:#7da315;
+	color:#3d4f0c;
+	text-shadow:1px 1px 0 #99bf31;
+}
+#navigationMenu .maccueil {background:url('/public/images/mhome.png') no-repeat;}
+#navigationMenu .maccueil span{
+	background-color:#7da315;
+	color:#3d4f0c;
+	text-shadow:1px 1px 0 #99bf31;
+}
+#navigationMenu .mmdp {background:url('/public/images/mmdp.png') no-repeat;}
+#navigationMenu .mmdp span{
+	background-color:#7da315;
+	color:#3d4f0c;
+	text-shadow:1px 1px 0 #99bf31;
+}
+
+#navigationMenu .mparam {background:url('/public/images/mParam.png') no-repeat;}
+#navigationMenu .mparam span{
+	background-color:#7da315;
+	color:#3d4f0c;
+	text-shadow:1px 1px 0 #99bf31;
+}
+/*------- boutons jaunes --------*/
+
+/*#navigationMenu .mprint {background:url('/public/images/mPrint.png') no-repeat;}
+#navigationMenu .mprint span{
+	background-color:#1e8bb4;
+	color:#223a44;
+	text-shadow:1px 1px 0 #44a8d0;
+}
+#navigationMenu .mexport {background:url('/public/images/mexport.png') no-repeat;}
+#navigationMenu .mexport span{
+	background-color:#1e8bb4;
+	color:#223a44;
+	text-shadow:1px 1px 0 #44a8d0;
+}
+*//* bouton violet: ajout  enregistrement*//*
+
+#navigationMenu .madd {background:url('/public/images/madd.png') no-repeat;}
+#navigationMenu .madd span{
+	background-color:#af1e83;
+    color:#F5F5DC;
+    text-shadow:1px 1px 0 #223a44;
+}*/
+
+/*----- bouton jaune  : absences , notes de frais   ---*/
+#navigationMenu .mabs { background:url('/public/images/mConges.png') no-repeat;}
+#navigationMenu .mabs span{
+	background-color:#d0a525;
+	color:#F5F5DC;
+    text-shadow:1px 1px 0 #223a44;
+}
+
+#navigationMenu .mndf { background:url('/public/images/mNdF1.png') no-repeat;}
+#navigationMenu .mndf span{
+	background-color:#d0a525;
+    color:#F5F5DC;
+    text-shadow:1px 1px 0 #223a44;
+}
+#navigationMenu .mform { background:url('/public/images/mForm.png') no-repeat;cursor:pointer }
+#navigationMenu .mform span{
+
+	background-color:#d0a525;
+    color:#F5F5DC;
+    text-shadow:1px 1px 0 #223a44;
+}
+#navigationMenu .mpaye { background:url('/public/images/mPaye.png') no-repeat;cursor:pointer}
+#navigationMenu .mpaye span{
+	background-color:#d0a525;
+    color:#F5F5DC;
+    text-shadow:1px 1px 0 #223a44;
+}
+
+#navigationMenu .ment { background:url('/public/images/mEntretien.png') no-repeat;cursor:pointer}
+#navigationMenu .ment span{
+	background-color:#d0a525;
+    color:#F5F5DC;
+    text-shadow:1px 1px 0 #223a44;
+}
+#navigationMenu .mvis { background:url('/public/images/mvision.png') no-repeat;cursor:pointer}
+#navigationMenu .mvis span{
+	background-color:#d0a525;
+    color:#F5F5DC;
+    text-shadow:1px 1px 0 #223a44;
+}
+#navigationMenu .mdec { background:url('/public/images/mDecidium.png') no-repeat;cursor:pointer}
+#navigationMenu .mdec span{
+	background-color:#d0a525;
+    color:#F5F5DC;
+    text-shadow:1px 1px 0 #223a44;
+}
+#navigationMenu .mpla { background:url('/public/images/mPlanetVO.png') no-repeat;cursor:pointer}
+#navigationMenu .mpla span{
+	background-color:#d0a525;
+    color:#F5F5DC;
+    text-shadow:1px 1px 0 #223a44;
+}
+/*---- administration ---*/
+
+#navigationMenu .madmin { background:url('/public/images/mAdmin.png') no-repeat;}
+#navigationMenu .madmin span{
+	background-color:#d0a525;
+    color:#F5F5DC;
+    text-shadow:1px 1px 0 #223a44;
+}
+#navigationMenu .msub { background:url('/public/images/mSub.png') no-repeat;}
+#navigationMenu .msub span{
+	background-color:#d0a525;
+    color:#F5F5DC;
+    text-shadow:1px 1px 0 #223a44;
+}
+
+#navigationMenu .mtabs  {background:url('/public/images/mTAbs.png') no-repeat;}
+#navigationMenu .mtabs span{
+   background-color:#c86c1f;
+  	color:#F5F5DC;
+  	text-shadow:1px 1px 0 #223a44;
+}
+
+#navigationMenu .mref {background:url('/public/images/mReferentiel.png') no-repeat;}
+#navigationMenu .mref span{
+	background-color:#c86c1f;
+  	color:#F5F5DC;
+  	text-shadow:1px 1px 0 #223a44;
+}
+#navigationMenu .mconv {background:url('/public/images/mConventions.png') no-repeat;}
+#navigationMenu .mconv span{
+	background-color:#c86c1f;
+  	color:#F5F5DC;
+  	text-shadow:1px 1px 0 #223a44;
+}
+
+#navigationMenu .muser {background:url('/public/images/mUsers.png') no-repeat;}
+#navigationMenu .muser span{
+   background-color:#c86c1f;
+  	color:#F5F5DC;
+  	text-shadow:1px 1px 0 #223a44;
+}
+#navigationMenu .mfer {background:url('/public/images/mFeries.png') no-repeat;}
+#navigationMenu .mfer span{
+   background-color:#c86c1f;
+  	color:#F5F5DC;
+  	text-shadow:1px 1px 0 #223a44;
+}
+#navigationMenu .msite { background:url('/public/images/mSites.png') no-repeat;}
+#navigationMenu .msite span{
+  	background-color:#c86c1f;
+  	color:#F5F5DC;
+  	text-shadow:1px 1px 0 #223a44;
+}
+
+
+#Btnmenu .m{
+
+}
+
+#waitGlobal {
+    background-color: rgba(238, 242, 251, 0.88);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 99;
+    display:none;
+}
+#waitGlobalImg{
+    position: absolute;
+}
