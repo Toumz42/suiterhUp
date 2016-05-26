@@ -46,7 +46,7 @@ html,body {
 }
 
 
-#title_connexion {etats
+#title_connexion {
 	margin-top: 10px;
 	font-family: Arial, Helvetica, sans-serif, 'Lucida Grande';
 	font-size: 20px;
@@ -276,7 +276,7 @@ html,body {
 .infoInput{
 	font-family: Arial, Helvetica, sans-serif, 'Lucida Grande';
     font-size: 5px;
-    width:auto;right;
+    width:auto; right;
     display:inline;
 
 }
@@ -579,7 +579,7 @@ html,body {
  	font-style:normal;
  	height:30px;
  	line-height:25px;
- 	width:65px
+ 	width:65px;
  	text-decoration:none;
  	text-align:center;
  	padding: 0px 5px 0px 5px;
@@ -1018,41 +1018,6 @@ p#spacer {
    z-index: 1000 ;
 }
 
-.win8Container{
-    width: 1000px;
-    margin-left : 100px;
-}
-.win8Btn{
-    display: inline-block;
-    width: 200px;
-    height: 100px;
-    background-color: #5A7892;
-    margin-bottom: 8px;
-}
-.win8DivImg {
-    text-align: center;
-    height: 75%;
-}
-.win8Img {
-    height: 55px;
-    padding-top: 13px;
-}
-.win8Titre {
-    height: 25%;
-    padding-left: 15px;
-    padding-top: 3px;
-    color: white;
-    font-size: 12px;
-}
-
-.table{display: table;}
-.row {display: table-row;}
-.cell {display: table-cell;}
-
-
-#historiqueTable {
-	width: 100%;
-}
 
 .saisieDiv {
     position: absolute;
@@ -1080,39 +1045,74 @@ p#spacer {
     float: left;
     margin-left: 1px;
 }
-#choixMarqueModale {
-    z-index: 1;
-    margin-left: 10%;
-    margin-top: -80px;
-    display: none;
-}
 
-#choixPoleModale {
-    z-index: 1;
-    margin-left: 10%;
-    margin-top: -80px;
-    display: none;
-}
+@media (max-width: 65em)
 
-#choixServiceSupportModale {
-    z-index: 1;
-    margin-left: 10%;
-    margin-top: -80px;
-    display: none;
-}
+{
+	form{
+		text-align: center;
+	}
 
-#listSites {
-    font-weight: bold;
-    margin-bottom: 8px;
-    font-size: 13px;
-}
+	#connexion_div {;
+		position: absolute;
+		width: 81%;
+		border-radius: 15px;
+		box-shadow: -1px 19px 12px 23px rgba(0, 0, 0, .15), -17px 0 10px -10px rgba(0, 0, 0, .15);
+		padding: 40px;
+		margin-left: -5.5%;
+		height: 45%;
+		text-align: center;
+		margin-top: 44%;
+	}
 
-#addHabilitation {
-    margin-bottom: 10px;
-}
+	#btn_connexion {
+		margin-right: 20%;
+		width : 60%;
+		padding-top: 45px;
+		padding-bottom: 45px;
+		margin-top: 50px;
+	}
 
-#choixHabilitaionClose {
-    position: absolute;
-    top: 5px;
-    left: 285px;
+	.gbbutton{
+		font-size: 70px;
+	}
+	.labelFilter {
+		font-size: 50px;
+		margin-bottom: 5px;
+		display: block;
+		width: 100%;
+		height: 100%;
+		margin-bottom: 30px;
+		margin-top: 30px;
+	}
+
+	#p_lost_pswd{
+		margin-top: 50px;
+		font-size: 40px;
+		margin-right: 25%;
+	}
+
+	#title_connexion {
+		margin-top: 10px;
+		font-family: Arial, Helvetica, sans-serif, 'Lucida Grande';
+		font-size: 70px;
+		margin-left: 5%;
+	}
+
+	.inputLogin{
+		font-size: 50px;
+		margin-bottom: 5px;
+		width: 80%;
+	}
+
+	#logoClient{
+		padding: 300px;
+		width: 100%;
+
+	}
+
+
+
+
+
 }
