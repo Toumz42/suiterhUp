@@ -32,7 +32,7 @@ $(function(){
 
     })();
 
-    (function (window, document) {
+/*    (function (window, document) {
 
         var     layout   = document.getElementById('layout'),
             menu     = document.getElementById('menu'),
@@ -67,6 +67,6 @@ $(function(){
             toggleClass(overlay, active);
         };
 
-    }(this, this.document));
+    }(this, this.document));*/
 
 });

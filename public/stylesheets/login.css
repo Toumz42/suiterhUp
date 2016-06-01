@@ -22,14 +22,15 @@ and (orientation: portrait)
 
     #connexion_div {
         position: absolute;
-        width: 92%;
+        width: 80%;
+        height: auto;
         border-radius: 50px;
         box-shadow: -1px 19px 12px 23px rgba(0, 0, 0, .15), -17px 0 10px -10px rgba(0, 0, 0, .15);
         padding: 40px;
-        margin-left: 5%;
-        height: 60%;
+        margin-left: 6%;
+        height: 58%;
         text-align: center;
-        margin-bottom: 10%;
+        margin-top: 10%;
     }
 
     #btn_connexion {
@@ -44,25 +45,26 @@ and (orientation: portrait)
         font-size: 70px;
     }
     .labelFilter {
-        font-size: 70px;
+        font-size: 60px;
         margin-bottom: 5px;
         display: block;
         width: 100%;
-        height: 100%;
-        margin-bottom: 30px;
-        margin-top: 30px;
+        margin-bottom: 21px;
+        margin-top: 50px;
     }
 
+
     #p_lost_pswd{
-        margin-top: 50px;
+        margin-top: 40px;
         font-size: 50px;
-        margin-right: 23%;
+        margin-right: 18%;
+        padding-bottom: 15px;
     }
 
     #title_connexion {
         margin-top: 10px;
         font-family: Arial, Helvetica, sans-serif, 'Lucida Grande';
-        font-size: 120px;
+        font-size: 90px;
         margin-left: 5%;
     }
 
@@ -79,7 +81,9 @@ and (orientation: portrait)
     }
 
     #imgClient{
-        width: 100%;
+        float: left;
+        width: 30%;
+        margin-left:5%;
     }
 }
 
@@ -89,21 +93,20 @@ and (max-device-width: 1024px)
 and (orientation: portrait) {
     #connexion_div{
         width: 80%;
-        margin-left: 12%;
+        margin-left: 6%;
+        height: 65%;
+
     }
 
     #title_connexion {;
         font-size: 80px;
-    }
-
-    #logoClient{
-        padding: 56px;
+        margin-bottom: 15%;
     }
 
     .labelFilter {
         font-size: 47px;
         margin-bottom: 22px;
-        margin-top: 10px;
+        margin-top: 30px;
     }
 
     #btn_connexion {
@@ -114,16 +117,13 @@ and (orientation: portrait) {
 
     #p_lost_pswd {
         font-size: 44px;
+        margin-right: 23%;
     }
 
     .inputLogin {
         width: 70%;
     }
 
-    #imgClient{
-        width: 78%;
-        margin-left: 10%;
-    }
 }
 
 /*/////////////////////////////////////////  Design pour format paysage  \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
@@ -133,11 +133,12 @@ and (orientation: landscape)
 {
     #connexion_div{
         width: 50%;
-        height: 85%;
+        max-height: 65%;
         margin-left: 25%;
         display: inline-block;
-        margin-top: 2.5%;
+        margin-top: 1.5%;
         padding-bottom: 2.5%;
+
 
     }
 
@@ -149,7 +150,9 @@ and (orientation: landscape)
     }
 
     #imgClient{
-        width: 190%;
+        float: left;
+        width: 30%;
+        margin-top: -8%
     }
 
     form{
@@ -158,6 +161,7 @@ and (orientation: landscape)
     }
 
     .labelFilter {
+        float: left;
         font-size: 35px;
         margin-bottom: 5px;
         display: block;
@@ -203,8 +207,15 @@ and (orientation: landscape)
 and (max-device-width : 1024px)
 and (orientation : landscape){
 
-    #imgClient{
-        margin-top: 35%;
+    #connexion_div{
+        margin-top: 5%;
+    }
+
+    #title_connexion{
+        font-size: 60px;
+        display: inline-block;
+        margin-bottom: 0%;
+        margin-top: 5%;
     }
 
 }

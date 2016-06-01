@@ -1,3 +1,33 @@
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
 * {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -5,26 +35,21 @@
 
 
 li a {
-    color: #e1911e;
-    font-size: 1.2rem;
-    font-weight: 400;
-    line-height: 1.65079rem;
-    margin: 0.27513rem 0 1.65079rem;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.31);
-}
-
-.sousMenu{
-    color: ;
-}
-
-a{
     text-decoration:none;
     display:block;
     padding:8px 32px;
-    font-family:roboto;
-    margin-bottom: 2em;
+    font-family: Arial;
+    margin-top: 1.2em;
     vertical-align: middle;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    color: #e1911e;
+    font-size: 50px;
+    font-weight: 400;
+    line-height: 1.65079rem;
+}
+
+ul li ul li a{
+    font-size: 30px;
+    margin-left: 11%;
 }
 
 h4 {
@@ -60,8 +85,8 @@ h4 {
     top: 0;
     left: 0;
     margin: 1.5rem;
-    width: 70px;
-    height: 70px;
+    width: 90px;
+    height: 90px;
     text-align: center;
     line-height: 45px;
     border-radius: 100%;
@@ -80,17 +105,18 @@ h4 {
 
 .navigation {
     position: fixed;
-    width: 16rem;
-    height: 100vh;
+    width: auto;
+    height: auto;
+    min-height: 33%;
     top: 0;
     left: 0;
-    background: rgba(160, 153, 146, 0.16);
-    box-shadow: 0 10px 10px #000000;
+    background: rgba(255, 255, 255, 0.69);
+    box-shadow: 20px 50px 50px rgba(0, 0, 0, 0.31);
     padding: 0.5rem;
     z-index: 1;
-    -webkit-transform: translateX(-100vh) scale(1, 1);
-    -ms-transform: translateX(-100vh) scale(1, 1);
-    transform: translateX(-100vh) scale(1, 1);
+    -webkit-transform: translateY(-100vh) scale(1, 1);
+    -ms-transform: translateY(-100vh) scale(1, 1);
+    transform: translateY(-100vh) scale(1, 1);
     -webkit-transition: -webkit-transform 0.3s;
     transition: transform 0.3s;
     -webkit-transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
@@ -104,6 +130,41 @@ h4 {
     -ms-transform: translateX(0vh) scale(1, 1);
     transform: translateX(0vh) scale(1, 1);
 }
+
+.nav__button {
+    position: fixed;
+    left: 150px;
+    opacity: 1;
+    transform: scale(1, 1);
+    transition: 800ms ease-in-out;
+    /*-webkit-animation: fadein 1s; !* Safari, Chrome and Opera > 12.1 *!*!
+    !*-moz-animation: fadein 1s; !* Firefox < 16 *!*!
+    !*-ms-animation: fadein 1s; !* Internet Explorer *!*!
+    !*-o-animation: fadein 1s; !* Opera < 12.1 *!*!
+    !*animation: fadein 1s;*/
+}
+#layout.enable {
+    position: relative;
+}
+
+#menu-demo2 ul{
+    /*z-index: 1000;*/
+    max-height:0;
+    left: 30%;
+    right: 0;
+    overflow:hidden;
+    transition: 0.3s ease-in-out;
+}
+
+/*A augmenter pour aggrandir la taille du déroulant du sous-menu*/
+#menu-demo2 li:hover ul{
+    max-height:22em;
+}
+ul#menu-demo2 {
+    padding-top: 60px;
+    padding-bottom: 30px;
+}
+
 .overlay
 {
     height: 15%;
@@ -118,41 +179,13 @@ h4 {
     padding: 0;
     top: 0;
     position: fixed;
-
     -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
     -moz-animation: fadein 1s; /* Firefox < 16 */
     -ms-animation: fadein 1s; /* Internet Explorer */
     -o-animation: fadein 1s; /* Opera < 12.1 */
     animation: fadein 1s;
 }
-@keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
 
-/* Firefox < 16 */
-@-moz-keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
-
-/* Safari, Chrome and Opera > 12.1 */
-@-webkit-keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
-
-/* Internet Explorer */
-@-ms-keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
-
-/* Opera < 12.1 */
-@-o-keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
 
 .material-design-hamburger button {
     display: block;
@@ -162,14 +195,17 @@ h4 {
 }
 
 .material-design-hamburger__icon {
-    padding: 2.1rem 0.95rem;
+    padding-top: 42px;
+    padding-right: 0px;
+    padding-bottom: 29px;
+    padding-left: 19px;
     cursor: pointer;
 }
 
 .material-design-hamburger__layer {
     display: block;
-    width: 40px;
-    height: 4px;
+    width: 51px;
+    height: 5px;
     background: #eee;
     position: relative;
     animation-duration: 300ms;
@@ -179,7 +215,7 @@ h4 {
 .material-design-hamburger__layer:before, .material-design-hamburger__layer:after {
     display: block;
     width: inherit;
-    height: 4px;
+    height: inherit;
     position: absolute;
     background: inherit;
     left: 0;
@@ -227,7 +263,7 @@ h4 {
     0% {
     }
     100% {
-        transform: rotate(180deg);
+        transform: rotate(270deg);
     }
 }
 
@@ -253,7 +289,7 @@ h4 {
 
 @keyframes material-design-hamburger__icon--slide-from {
     0% {
-        transform: rotate(180deg);
+        transform: rotate(270deg);
     }
     100% {
     }
@@ -280,39 +316,7 @@ h4 {
 }
 
 .textMenu{
-    transition: 1s ease-in-out;
-    font-family: roboto;
-}
-.nav__button {
-    position: fixed;
-    left: 150px;
-    opacity: 1;
-    transform: scale(1, 1);
-    transition: 800ms ease-in-out;
-    /*-webkit-animation: fadein 1s; !* Safari, Chrome and Opera > 12.1 *!*!
-    !*-moz-animation: fadein 1s; !* Firefox < 16 *!*!
-    !*-ms-animation: fadein 1s; !* Internet Explorer *!*!
-    !*-o-animation: fadein 1s; !* Opera < 12.1 *!*!
-    !*animation: fadein 1s;*/
-}
-#layout.enable {
-    position: relative;
-}
-
-
-
-#menu-demo2 ul{
-    /*z-index: 1000;*/
-    max-height:0;
-    left: 30%;
-    right: 0;
-    overflow:hidden;
-    transition: 1s ease-in-out;
-}
-
-/*A augmenter pour aggrandir la taille du déroulant*/
-#menu-demo2 li:hover ul{
-    max-height:20em;
+    transition: 0.3s ease-in-out;
 }
 
 /* background des liens menus */
