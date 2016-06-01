@@ -18,6 +18,10 @@ public class Application extends Controller {
         render();
     }
 
+    public static void menu() { render(); }
+
+    public static void menu2() { render(); }
+
 
     public static void identifyUser(String login, String pswd) {
         ErrorUtils retour = null;
@@ -44,4 +48,33 @@ public class Application extends Controller {
 
         renderJSON(retour);
     }
+
+    public static void getCurrentUser()
+    {
+        ErrorUtils ret = null;
+
+        String id = session.get( "userId" );
+        if (id != null)
+        {
+            long l = Long.parseLong( id );
+            Utilisateurs currentUser = Utilisateurs.findById( l );
+
+            if ( currentUser != null )
+            {
+                ret = ErrorUtils.createError( false, "Bienvenue " + currentUser.prenom + " " + currentUser.nom, "info");
+            }
+            else
+            {
+                ret = ErrorUtils.createError( true, "Utilisateur non reconnu", "erreur" );
+            }
+        }
+        else
+        {
+            ret = ErrorUtils.createError( true, "Session inactive", "erreur" );
+        }
+
+        renderJSON( ret );
+
+    }
+
 }

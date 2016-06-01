@@ -1,0 +1,46 @@
+html,body {
+    background: #F7F7F7;
+    font-family: Arial, Helvetica, sans-serif, 'Lucida Grande';
+}
+
+body{
+    background-image: url("/public/images/groupe-bernard-automobiles.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+}
+
+ul{
+    margin-top: 5%;
+    margin-bottom: -20%;
+    margin-left: 5%;
+    margin-right: 5%;
+    text-align: center;
+    font-style: italic;
+    padding-bottom: 10px;
+    padding-top: 5px;
+}
+#bleu{
+    color: #006beb;
+    font-size: 95px;
+    background: -webkit-linear-gradient(#47BCE7, #005EB9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#blanc{
+    color: #75726c;
+    font-size: 95px;
+    background: -webkit-linear-gradient(#D3D3D3,#606060);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#orange{
+    color: #f3a600;
+    font-size: 95px;
+    background: -webkit-linear-gradient(#FFDD90,#F18700);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+

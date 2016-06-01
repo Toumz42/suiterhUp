@@ -4,73 +4,16 @@
 <head>
     <title>Identification</title>
     <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
+    <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/login.css'}">
     <script type="text/javascript" language="javascript" src="/public/javascripts/jquery-1.5.2.min.js"></script>
     <script type="text/javascript" language="javascript" src="/public/javascripts/jquery-ui-1.10.4.custom/js/jquery-ui-1.10.4.custom.min.js"></script>
     <script type="text/javascript" src="/public/javascripts/jquery.tmpl.js"></script>
+    <script type="text/javascript" language="JavaScript" src="public/javascripts/views/login.js"></script>
     <link rel="stylesheet" href="/public/stylesheets/jquery-ui.css">
-
-    <script type="text/javascript">
-        $(function ()
-        {
-            $('#login').val('');
-            var password = $('#password').val('');
-
-            $('#btn_connexion').bind("click",function()
-            {
-                var id = $('#login').val();
-                var password = $('#password').val();
-
-                $.post('/application/identifyUser', {'login': id, 'pswd':password}, function(retour)
-                {
-
-                    if (retour)
-                    {
-                        alert(retour.messageRetour);
-                        $('#login').select();
-                    }
-                    else
-                    {
-                        window.location = '/';
-                    }
-                });
-            });
-
-            $('#p_lost_pswd').bind("click", function()
-            {
-                var id = $('#login').val();
-                if (id == "")
-                {
-                    alert("Veuillez saisir votre identifiant et cliquez de nouveau sur J'ai perdu mon mot de passe");
-                }
-                else
-                {
-                    if (confirm("Un mail vous sera envoyé à votre adresse avec vos identifiants de connections"))
-                    {
-                        $.post('/application/envoyerMdp', {'login': id}, function(retour)
-                        {
-                            if (retour)
-                            {
-                                alert(retour.messageRetour);
-                            }
-                        });
-                    }
-                }
-
-            });
-
-            $(document).keyup(function(e) {
-                if (e.keyCode  == 13) { $('#btn_connexion').click(); }
-            });
-            // centrer DIV de login "connexion_div"
-            $("#connexion_div").css("top",($(window).height() / 2) - ($("#connexion_div").height() / 2) - $("#logoClient").height());
-            $("#connexion_div").css("left",($(window).width() / 2) - ($("#connexion_div").width() / 2));
-            if ($.browser.msie && $.browser.version.substr(0,1)<9) {alert("Votre version de navigateur n'est pas compatible. Veuillez contacter l'informatique");};
-        });
-    </script>
 </head>
 <body>
 <div id="logoClient">
-    <img src="/public/images/groupe-bernard-automobiles.png">
+    <img id="imgClient" src="/public/images/groupe-bernard-automobiles.png">
 </div>
 <div id=connexion_div>
     <form method="post" action="">
@@ -86,7 +29,7 @@
                     <input id="password" type="password" name="password" class="inputLogin"/>
                 </span><br><br>
                 <span>
-                    <input type="button" value="Connexion" id="btn_connexion" class="gbbutton">
+                    <input type="submit" value="Connexion" id="btn_connexion" class="gbbutton">
                 </span><br><br><br>
                 <span>
                     <label id="p_lost_pswd">Mot de passe oublié?</label>

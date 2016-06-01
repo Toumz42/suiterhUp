@@ -1,0 +1,210 @@
+
+
+/*--------------------------------------------------------------------------------------------------------------------*\
+//////////////////////////////////	Design pour l'application web de suite RH: suiteRHmobile \\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ Modifié par Jonathan ///////////////////////////////////////////////////
+\*--------------------------------------------------------------------------------------------------------------------*/
+
+
+#connexion_div{
+    border-radius: 50px;
+    box-shadow: -1px 19px 12px 23px rgba(0, 0, 0, .15), -17px 0 10px -10px rgba(0, 0, 0, .15);
+}
+/*////////////////////////////////////////  Design pour format portrait  \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
+
+@media only screen
+and (orientation: portrait)
+{
+
+    form{
+        text-align: center;
+    }
+
+    #connexion_div {
+        position: absolute;
+        width: 92%;
+        border-radius: 50px;
+        box-shadow: -1px 19px 12px 23px rgba(0, 0, 0, .15), -17px 0 10px -10px rgba(0, 0, 0, .15);
+        padding: 40px;
+        margin-left: 5%;
+        height: 60%;
+        text-align: center;
+        margin-bottom: 10%;
+    }
+
+    #btn_connexion {
+        margin-right: 20%;
+        width : 60%;
+        padding-top: 45px;
+        padding-bottom: 45px;
+        margin-top: 50px;
+    }
+
+    .gbbutton{
+        font-size: 70px;
+    }
+    .labelFilter {
+        font-size: 70px;
+        margin-bottom: 5px;
+        display: block;
+        width: 100%;
+        height: 100%;
+        margin-bottom: 30px;
+        margin-top: 30px;
+    }
+
+    #p_lost_pswd{
+        margin-top: 50px;
+        font-size: 50px;
+        margin-right: 23%;
+    }
+
+    #title_connexion {
+        margin-top: 10px;
+        font-family: Arial, Helvetica, sans-serif, 'Lucida Grande';
+        font-size: 120px;
+        margin-left: 5%;
+    }
+
+    .inputLogin{
+        font-size: 50px;
+        margin-bottom: 5px;
+        width: 80%;
+    }
+
+    #logoClient{
+        padding: 56px;;
+        width: 100%;
+
+    }
+
+    #imgClient{
+        width: 100%;
+    }
+}
+
+/*Modifications pour Tablette portrait*/
+@media only screen and (min-device-width: 768px)
+and (max-device-width: 1024px)
+and (orientation: portrait) {
+    #connexion_div{
+        width: 80%;
+        margin-left: 12%;
+    }
+
+    #title_connexion {;
+        font-size: 80px;
+    }
+
+    #logoClient{
+        padding: 56px;
+    }
+
+    .labelFilter {
+        font-size: 47px;
+        margin-bottom: 22px;
+        margin-top: 10px;
+    }
+
+    #btn_connexion {
+        padding-top: 33px;
+        padding-bottom: 33px;
+        margin-top: 46px;
+    }
+
+    #p_lost_pswd {
+        font-size: 44px;
+    }
+
+    .inputLogin {
+        width: 70%;
+    }
+
+    #imgClient{
+        width: 78%;
+        margin-left: 10%;
+    }
+}
+
+/*/////////////////////////////////////////  Design pour format paysage  \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
+
+@media only screen
+and (orientation: landscape)
+{
+    #connexion_div{
+        width: 50%;
+        height: 85%;
+        margin-left: 25%;
+        display: inline-block;
+        margin-top: 2.5%;
+        padding-bottom: 2.5%;
+
+    }
+
+    #logoClient{
+        width: 20%;
+        margin-top: 10%;
+        display: inline-block;
+
+    }
+
+    #imgClient{
+        width: 190%;
+    }
+
+    form{
+        text-align: center;
+        padding-top: 10%;
+    }
+
+    .labelFilter {
+        font-size: 35px;
+        margin-bottom: 5px;
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+
+    #p_lost_pswd{
+        font-size: 30px;
+        margin-right: 21%;
+        margin-top: 2%;
+    }
+
+    #title_connexion {
+        margin-top: 10px;
+        font-family: Arial, Helvetica, sans-serif, 'Lucida Grande';
+        font-size: 40px;
+        margin-left: 5%;
+        margin-bottom: 5%;
+    }
+
+    .inputLogin{
+        width: 80%;
+        font-size: 30px;
+    }
+
+    #btn_connexion {
+        margin-right: 20%;
+        width : 60%;
+        padding-top: 22px;
+        padding-bottom: 23px;
+        margin-top: 1.5%;
+    }
+
+    .gbbutton{
+        font-size: 35px;
+    }
+
+}
+
+/*Modifications pour Tablettes paysage*/
+@media only screen and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : landscape){
+
+    #imgClient{
+        margin-top: 35%;
+    }
+
+}
