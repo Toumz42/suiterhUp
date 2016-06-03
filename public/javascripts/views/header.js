@@ -9,4 +9,12 @@ $(function () {
         }
     });
 
+    $("#btn_deconnexion").click(function()
+    {
+        $.post("/Application/deconnect",function()
+        {
+            window.location = '/login';
+        })
+    })
+
 });
