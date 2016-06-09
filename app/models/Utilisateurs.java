@@ -19,9 +19,8 @@ import java.util.*;
 
 @Entity
 @Table(name = "UTILISATEURS")
-public class Utilisateurs extends Model
-{
-    public String matricule;
+public class Utilisateurs extends Model{
+
     public String nom;
     public String prenom;
     public String email;
@@ -29,11 +28,44 @@ public class Utilisateurs extends Model
     public String motDePasse;
     public String telephone;
     public String fax;
+    public String categorieCotisant;
+    public String classification;
+    public String libelleEmploi;
+    public String matriculeManagerImport;
+    public String niveauGestionEquipe;
 
     public Date dateEntree;
     public Date dateSortie;
     public Date dateNaissance;
 
+
+    public Boolean noMajManN1;
+    @OneToOne(cascade = CascadeType.ALL)
+    public Utilisateurs	managerN2;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    public Utilisateurs	manager;
+
+    public Boolean noMajManN2;
+    @ManyToMany(cascade = CascadeType.ALL)
+    public List<Utilisateurs>   listmanager;
+
+
+
+    public boolean nonSoumisRtt;
+    public Boolean isActif;
+
+
+
+    @OneToOne
+    public Utilisateurs creePar;
+    public Date creeLe;
+
+    @OneToOne
+    public Utilisateurs modifiePar;
+    public Date         modifieLe;
+
+    public Boolean      vip;
 
 
 }

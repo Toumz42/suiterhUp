@@ -5,7 +5,7 @@
 window.location.href = "localhost:9800/login",5000;*/
 $(function()
 {
-    waitOn();
+
     $.post("/Application/getCurrentUser",function(ret)
     {
         if (ret.isError)
@@ -16,7 +16,7 @@ $(function()
         {
             window.location='/menu';
         }
-        waitOff();
+
     })
 
 });

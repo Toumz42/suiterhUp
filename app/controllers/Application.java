@@ -20,7 +20,7 @@ public class Application extends Controller {
 
     public static void menu() { render(); }
 
-    public static void menu2() { render(); }
+    public static  void demandes() { render(); }
 
 
     public static void identifyUser(String login, String pswd) {
@@ -31,10 +31,8 @@ public class Application extends Controller {
             p = Utilisateurs.find("Select p " +
                     "from Utilisateurs p " +
                     "Where (p.login = ? " +
-                    "Or p.matricule = ? " +
-                    "Or p.email = ? " +
                     ") And p.motDePasse = ?" +
-                    "", login, login, login, pswd).first();
+                    "",  login, pswd).first();
         } catch (Exception e) {
             e.printStackTrace();
             retour = ErrorUtils.createError(true, e.getMessage(), "erreur");
@@ -75,6 +73,45 @@ public class Application extends Controller {
 
         renderJSON( ret );
 
+    }
+
+    public static void deconnect()
+    {
+        session.clear();
+        renderJSON(ErrorUtils.createError(false,"Ok","info"));
+    }
+
+    public static Utilisateurs getCurrentUserObject()
+    {
+        try
+        {
+            String id = session.get( "userId" );
+            if (id != null)
+
+            {
+                long l = Long.parseLong( id );
+
+                Utilisateurs currentUser = Utilisateurs.findById( l );
+
+                if ( currentUser != null )
+                {
+                    return currentUser;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            else
+            {
+                return null;
+            }
+        }
+        catch ( Exception e )
+        {
+            e.printStackTrace();
+            return null;
+        }
     }
 
 }

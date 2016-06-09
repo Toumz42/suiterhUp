@@ -33,7 +33,7 @@
     box-sizing: border-box;
 }
 
-
+/*Titres principaux du menu déroulant*/
 li a {
     text-decoration:none;
     display:block;
@@ -47,37 +47,26 @@ li a {
     line-height: 1.65079rem;
 }
 
+/*Titres secondaires du menu déroulant*/
 ul li ul li a{
-    font-size: 30px;
+    font-size: 35px;
     margin-left: 11%;
-}
-
-h4 {
-    color: #5975f4;
-    text-decoration: none;
-    -webkit-transition: color .2s ease-in-out;
-    transition: color .2s ease-in-out;
-}
-
-.main__slice {
-    border: 0;
-    width: 4.95238rem;
-    margin: 0.55026rem 0;
-    border-bottom: 1px dotted rgba(255, 255, 255, 0.75);
-    clear: both;
-    display: block;
 }
 
 .container {
     position: fixed;
-    z-index: 10;
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
+    z-index: 0;
+    width: 15%;
+    height: 5%;
     -webkit-transition: -webkit-transform 0.6s;
     transition: transform 0.6s;
     -webkit-transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
     transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+}
+
+div .active .container{
+    width: auto;
+    height: auto;
 }
 
 .main span.nav__button {
@@ -85,6 +74,7 @@ h4 {
     top: 0;
     left: 0;
     margin: 1.5rem;
+    /*Taille du bouton*/
     width: 90px;
     height: 90px;
     text-align: center;
@@ -100,6 +90,7 @@ h4 {
     user-select: none;
     -webkit-touch-callout: none;
 }
+
 
 .main span.nav__button.open {    background-color: rgba(79, 109, 245, 0.93); }
 
@@ -122,7 +113,6 @@ h4 {
     -webkit-transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
     transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
 }
-
 
 
 .active .navigation {
@@ -156,9 +146,9 @@ h4 {
     transition: 0.3s ease-in-out;
 }
 
-/*A augmenter pour aggrandir la taille du déroulant du sous-menu*/
+/*A augmenter pour aggrandir la taille maximum du déroulant du sous-menu*/
 #menu-demo2 li:hover ul{
-    max-height:22em;
+    max-height:50em;
 }
 ul#menu-demo2 {
     padding-top: 60px;
@@ -223,6 +213,58 @@ ul#menu-demo2 {
     animation-duration: 300ms;
     animation-timing-function: ease-in-out;
 }
+
+.scrollable-menu {
+    height: auto;
+    max-height: 800px;
+    overflow-x: hidden;
+}
+
+/*Cs sale*/
+.transparent{
+    color: rgba(0,0,0,0.29);
+}
+@media only screen
+and (orientation: landscape)
+{
+    .main span.nav__button{
+        width: 60px;
+        height: 60px;
+        top: -5px;
+    }
+
+    .material-design-hamburger__layer{
+        width: 42px;
+        height: 4px;
+    }
+
+    .material-design-hamburger__icon{
+        padding-top: 29px;
+        padding-left: 10px;
+    }
+
+    li a{
+        font-size: 31px;
+    }
+
+    ul li ul li a{
+        font-size: 22px;
+    }
+
+    .navigation{
+        top: -45px;
+        box-shadow: none;
+    }
+
+    .ombre{
+        box-shadow: 20px 50px 50px rgba(0, 0, 0, 0.31);
+    }
+
+    .scrollable-menu {
+        max-height: 500px;
+    }
+}
+
 
 .material-design-hamburger__layer:before {
     bottom:200%;

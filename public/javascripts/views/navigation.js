@@ -2,16 +2,18 @@
  * Created by Jonathan on 31/05/2016.
  */
 $(function(){
-    var btn = document.querySelector('.nav__button'), container = document.querySelector('.container');
+    var btn = document.querySelector('.nav__button'), container = document.querySelector('.container'), msg = document.querySelector('#hello'),
+    nav = document.querySelector('.navigation');
     btn.addEventListener('click', function () {
         this.classList.toggle('open');
         container.classList.toggle('active');
+        msg.classList.toggle('transparent');
+        nav.classList.toggle('ombre');
     });
 
     (function hamb() {
 
         'use strict';
-
         document.querySelector('.material-design-hamburger__icon').addEventListener(
             'click',
             function() {
@@ -31,42 +33,5 @@ $(function(){
             });
 
     })();
-
-/*    (function (window, document) {
-
-        var     layout   = document.getElementById('layout'),
-            menu     = document.getElementById('menu'),
-            menuLink = document.getElementById('button'),
-            overlay = document.getElementById('overlay');
-
-        function toggleClass(element, className) {
-            var classes = element.className.split(/\s+/),
-                length = classes.length,
-                i = 0;
-
-            for(; i < length; i++) {
-                if (classes[i] === className) {
-                    classes.splice(i, 1);
-                    break;
-                }
-            }
-            // The className is not found
-            if (length === classes.length) {
-                classes.push(className);
-            }
-
-            element.className = classes.join(' ');
-        }
-
-        menuLink.onclick = function (e) {
-            var active = 'enable';
-
-            e.preventDefault();
-            toggleClass(menu, active);
-            toggleClass(menuLink, active);
-            toggleClass(overlay, active);
-        };
-
-    }(this, this.document));*/
 
 });

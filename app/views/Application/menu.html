@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <head>
-    #{header /}
     <meta charset="UTF-8">
     <title>Menu</title>
     <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
@@ -13,10 +12,11 @@
 </head>
 
 <body class="myBody">
-    <div id="menuBoutton">
-        <input type="button" value="Voir les demandes" id="btn_demannde" class="gbbutton">
-        <input type="button" value="Autre chose" id="" class="gbbutton">
-        <input type="button" value="Encore autre chose" id="" class="gbbutton">
-        <input type="button" value="Encore autre chose" id="" class="gbbutton">
+#{header /}
+<div id="menuBoutton">
+        <a href="/demandes"><input type="button" value="Voir les demandes" id="btn_demannde" class="gbbutton"></a>
+        <a href=""><input type="button" value="Autre chose" id="" class="gbbutton"></a>
+        <a href=""><input type="button" value="Encore autre chose" id="" class="gbbutton"></a>
+        <a href=""><input type="button" value="Encore autre chose" id="" class="gbbutton"></a>
     </div>
 </body>

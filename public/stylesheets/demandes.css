@@ -1,0 +1,156 @@
+#liste{
+    margin-top: 10%;
+}
+.etat {
+    position: relative;
+    font-size: 20px;
+    display: inline-block;
+    width: 40%;
+    text-align: center;
+    margin-left: 28px;
+    height: 200px;
+}
+
+
+.absence{
+    border-bottom-style: groove;
+    padding-bottom: 2%;
+    padding-top: 2%;
+}
+
+
+.date{
+    font-size: 40px;
+    position:absolute;
+    width:300px;
+    margin-top:80px;
+    margin-left:80px;
+
+}
+.nom{
+    font-size: 45px;
+    position:relative;
+    width:50%;
+    height:80px;
+    float:left;
+    margin-left: 2%;
+}
+
+summary{
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+.jaune{
+    background-color: yellow;
+}
+
+.rouge{
+    background-color: red;
+}
+
+.vert{
+    background-color: #05ec05;
+}
+
+.gris{
+    background-color: grey;
+}
+
+.jaune, .rouge, .vert, .gris{
+    border-right-style: solid;
+    border-bottom-style: solid;
+    padding-bottom: 25px;
+    margin-top: 20px;
+    float: left;
+    width: 45%;
+    height: 76%;
+    margin-right: 5%;
+}
+
+.bouttons{
+    position: relative;
+    font-size: 20px;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    height: 200px;
+    margin-left: 2%;
+}
+
+.comm, .commentaire{
+    transition: 0.3s ease-in-out;
+    background-color: #F7F7F7;
+
+}
+
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-0.25em);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.nom[open] .comm {
+    animation-name: fadeInDown;
+    animation-duration: 0.5s;
+    z-index: 1;
+    position: absolute;
+}
+
+
+
+#liste{
+    position: fixed;
+    width: 100%;
+}
+
+.absence{
+    display: block;
+    position: relative;
+    max-height: 15%;
+    width: 100%;
+}
+
+
+/*All borders to see boxes' size*/
+.date, .nom, .etat, .absence, .bouttons{
+    border-style: ridge;
+}
+
+.etat input{
+    border-right-style: solid;
+    border-bottom-style: solid;
+    float: left;
+    width: 100%;
+    height: 112%;
+    margin-right: 5%;
+    background-color: inherit;
+}
+
+.bouttons input{
+    width: 25%;
+    margin-left: 2%;
+    box-shadow: 3px 15px 18px black;
+}
+
+.bouttons .rouge:active{
+    box-shadow: 5px 5px 5px white;
+    background-color: #8b0000;
+}
+
+.bouttons .vert:active{
+    box-shadow: 5px 5px 5px white;
+    background-color: #018501;
+}
+
+.bouttons .jaune:active{
+    box-shadow: 5px 5px 5px white;
+    background-color: #b9b904;
+}
+
+
+

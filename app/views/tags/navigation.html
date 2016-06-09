@@ -8,8 +8,7 @@
     <script type="text/javascript" language="JavaScript" src="public/javascripts/views/navigation.js"></script>
 <body>
 <div id= "layout" class="container">
-    <main class="main">
-        <hr class="main__slice">
+    <div class="main">
         <span class="nav__button" id="button">
             <section class="material-design-hamburger">
                 <button class="material-design-hamburger__icon">
@@ -22,16 +21,16 @@
                 &nbsp;
             </div>
             <div class="textMenu">
-                <ul id="menu-demo2">
+                <ul id="menu-demo2" class="scrollable-menu">
                     <li><a href="#">Voir les demandes</a>
-                        <ul class="sousMenu">
-                            <li><a href="#">Liste des demandes</a></li>
+                        <ul class="scrollable-menu">
+                            <li><a href="\demandes">Liste des demandes</a></li>
                             <li><a href="#">Demandes refusées</a></li>
                             <li><a href="#">Historique</a></li>
                         </ul>
                     </li>
                     <li><a href="#">Autre chose</a>
-                        <ul class="sousMenu">
+                        <ul class="scrollable-menu">
                             <li><a href="#">Sous chose</a></li>
                             <li><a href="#">Sur cette chose</a></li>
                             <li><a href="#">La chose le retour</a></li>
@@ -39,7 +38,7 @@
                         </ul>
                     </li>
                     <li><a href="#">Encore autre chose</a>
-                        <ul class="sousMenu">
+                        <ul class="scrollable-menu">
                             <li><a href="#">Comment bien débuter</a></li>
                             <li><a href="#">Le rework</a></li>
                             <li><a href="#">Traitement d'un autre</a></li>
@@ -47,7 +46,7 @@
                         </ul>
                     </li>
                     <li><a href="#">Comment grossir pour les nuls</a>
-                        <ul class="sousMenu">
+                        <ul class="scrollable-menu">
                             <li><a href="#">Bien manger</a></li>
                             <li><a href="#">Bien bien manger</a></li>
                             <li><a href="#">Se goinffrer</a></li>
@@ -57,7 +56,7 @@
                 </ul>
             </div>
         </nav>
-    </main>
+    </div>
 </div>
 
 </body>
