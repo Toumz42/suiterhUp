@@ -130,6 +130,19 @@ public class UtilisateursCtrl extends Controller {
         renderJSON(retour);
 
     }
+
+    public static void checkAccess(Long id)
+    {
+        Utilisateurs u = Utilisateurs.findById(id);
+        Boolean isGood = false;
+
+        if(u.accesMobile)
+        {
+            isGood = true;
+        }
+
+        renderJSON(isGood);
+    }
 }
 
 

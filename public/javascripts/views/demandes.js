@@ -25,14 +25,14 @@ $(function()
                         "<div class='dateFin'>Au " + value.dateFin +"</div>" +
                     "</div>" +
                     "<div class='etat'>"+
-                        "<div class=' button "+couleur(value.etatAbsence)+" 1'>" +
-                            "<input type='button'>&nbsp" +
+                        "<div class='"+couleur(value.etatAbsence)+"'>" +
+                            "<input  class='n1' type='button'>&nbsp" +
                         "</div>" +
-                        "<div class=' button "+couleur(value.etatAbsenceN2)+" 2'>" +
-                            "<input type='button'>&nbsp" +
+                        "<div class=' button "+couleur(value.etatAbsenceN2)+" n2'>" +
+                            "<input class='n2' type='button'>&nbsp" +
                         "</div>" +
                     "</div>"+
-                    "<div class='bouttons'>"+
+                    "<div class='bouttons' >"+
                         "<input type='button' class='vert'>&nbsp"+
                         "<input type='button' class='rouge'>&nbsp"+
                         "<input type='button' class='jaune'>&nbsp"+
@@ -44,10 +44,16 @@ $(function()
         })
     });
 
+    $(document).ready(function() {
+        $(".n1").live("click", function () {
+            $(".bouttons").show();
 
-    $(".button").click(function(){
-       $(".bouttons").show();
+            var blip= $("n1").parent().parent().parent().id;
+            alert(blip);
+
+        });
     });
+
 });
 
 function couleur(etat)

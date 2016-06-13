@@ -39,12 +39,13 @@ public class Application extends Controller {
         }
 
         if (p == null) {
-            retour = ErrorUtils.createError(false, "Erreur dans la saisie de l'identifiant ou du mot de passe", "warn");
+            retour = ErrorUtils.createError(true, "Erreur dans la saisie de l'identifiant ou du mot de passe", "warn");
+            renderJSON(retour);
         } else {
             session.put("userId", p.id);
+            renderJSON(p.id);
         }
 
-        renderJSON(retour);
     }
 
     public static void getCurrentUser()

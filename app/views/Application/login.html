@@ -13,7 +13,7 @@
 </head>
 <body>
 <div id=connexion_div>
-    <form method="post" action="">
+    *{<form method="post" onsubmit="return check()" action="">}*
                 <span>
                     <img id="imgClient" src="/public/images/groupe-bernard-automobiles.png">
                     <label  id="title_connexion">Identifiez vous</label>
@@ -27,12 +27,13 @@
                     <input id="password" type="password" name="password" class="inputLogin"/>
                 </span><br><br>
                 <span>
-                    <input type="submit" value="Connexion" id="btn_connexion" class="gbbutton">
+                    *{<input type="submit" value="Connexion" id="btn_connexion" class="gbbutton">}*
+                    <input type="button" value="Connexion" id="btn_connexion" class="gbbutton">
                 </span><br><br><br>
                 <span>
                     <label id="p_lost_pswd">Mot de passe oublié?</label>
                 </span>
-    </form>
+    *{</form>}*
 </div>
 
 </body>

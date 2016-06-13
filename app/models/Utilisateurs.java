@@ -67,5 +67,12 @@ public class Utilisateurs extends Model{
 
     public Boolean      vip;
 
+    public Boolean accesMobile;
+    public Boolean activeMobile;
+    public Integer compteurEssai;
+    public Date dateExpirationMdp;
+
+
+
 
 }

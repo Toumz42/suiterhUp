@@ -10,18 +10,38 @@ $(function ()
     {
         var id = $('#login').val();
         var password = $('#password').val();
+        var locat='login';
 
         $.post('/application/identifyUser', {'login': id, 'pswd':password}, function(retour)
         {
-
-            if (retour)
+            var locat;
+            if (retour.isError)
             {
                 alert(retour.messageRetour);
                 $('#login').select();
+                alert("pas d'identification maggle");
             }
             else
             {
-                window.location = '/menu';
+                alert("identification réussie");
+                var currentUserId = retour ;
+                $.ajaxSetup({async : false});
+                $.post('/utilisateursCtrl/checkAccess', {'id': currentUserId}, function(data)
+                {
+                    if (data)
+                    {
+                        $.ajaxSetup({async : true});
+                       /* window.location.href="http://localhost:9800/menu";*/
+                        location.assign("http://localhost:9800/menu");
+
+                    }
+                    else
+                    {
+                        alert("Vous n'avez pas les droits pour acceder à ce site");
+                        $.post("/Application/deconnect",function(){})
+                    }
+                });
+
             }
         });
     });

@@ -32,7 +32,6 @@ public class SuiteRHCtrl extends Controller {
         {
             renderJSON(ErrorUtils.createError(true,"Nope","error"));
         }
-
     }
 
     public static void getNbrJours(Long id)
@@ -48,6 +47,5 @@ public class SuiteRHCtrl extends Controller {
         {
             renderJSON(ErrorUtils.createError(true,"Nope","error"));
         }
-
     }
 }
