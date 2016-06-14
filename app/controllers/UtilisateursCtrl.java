@@ -131,18 +131,6 @@ public class UtilisateursCtrl extends Controller {
 
     }
 
-    public static void checkAccess(Long id)
-    {
-        Utilisateurs u = Utilisateurs.findById(id);
-        Boolean isGood = false;
-
-        if(u.accesMobile)
-        {
-            isGood = true;
-        }
-
-        renderJSON(isGood);
-    }
 }
 
 

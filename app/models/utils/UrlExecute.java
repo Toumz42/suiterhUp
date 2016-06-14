@@ -7,6 +7,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.nio.charset.StandardCharsets;
 
 /**
  * Created with IntelliJ IDEA.
@@ -80,4 +81,49 @@ public class UrlExecute {
         }
         return null;
     }
+    public static String getJSONbyPost(String requestUrl, String urlParameters) {
+        @SuppressWarnings("Since15") byte[] postData = urlParameters.getBytes( StandardCharsets.UTF_8 );
+        HttpURLConnection conn = null;
+        int status = 0;
+        try {
+            URL url = new URL( requestUrl );
+            int postDataLength = postData.length;
+            conn = (HttpURLConnection) url.openConnection();
+            conn.setDoOutput( true );
+            conn.setInstanceFollowRedirects( false );
+            conn.setRequestMethod( "POST" );
+            conn.setRequestProperty( "Content-Type", "application/x-www-form-urlencoded");
+            conn.setRequestProperty( "charset", "utf-8");
+            conn.setRequestProperty( "Content-Length", Integer.toString( postDataLength ));
+            conn.setUseCaches( false );
+
+            DataOutputStream wr = new DataOutputStream( conn.getOutputStream());
+            wr.write( postData );
+            status = conn.getResponseCode();
+            switch (status) {
+                case 200:
+                case 201:
+                    Reader in = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
+                    StringBuilder sb = new StringBuilder();
+                    for (int c; (c = in.read()) >= 0;)
+                        sb.append((char)c);
+                    return sb.toString();
+            }
+
+        }  catch (MalformedURLException ex) {
+            /*Logger.getLogger(getClass().getName()).log(Level.SEVERE, null, ex);*/
+        } catch (IOException ex) {
+            /*Logger.getLogger(getClass().getName()).log(Level.SEVERE, null, ex);*/
+        } finally {
+            if (conn != null) {
+                try {
+                    conn.disconnect();
+                } catch (Exception ex) {
+                    /*Logger.getLogger(getClass().getName()).log(Level.SEVERE, null, ex);*/
+                }
+            }
+        }
+        return null;
+    }
+
 }

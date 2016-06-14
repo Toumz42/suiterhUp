@@ -3,6 +3,7 @@
  */
 $(function ()
 {
+
     $('#login').val('');
     var password = $('#password').val('');
 
@@ -12,7 +13,7 @@ $(function ()
         var password = $('#password').val();
         var locat='login';
 
-        $.post('/application/identifyUser', {'login': id, 'pswd':password}, function(retour)
+        $.post('/SuiteRHCtrl/identifyUser', {'login': id, 'password':password}, function(retour)
         {
             var locat;
             if (retour.isError)
@@ -26,9 +27,9 @@ $(function ()
                 alert("identification réussie");
                 var currentUserId = retour ;
                 $.ajaxSetup({async : false});
-                $.post('/utilisateursCtrl/checkAccess', {'id': currentUserId}, function(data)
+                $.post('/SuiteRHCtrl/checkAccess', {'id': currentUserId}, function(data)
                 {
-                    if (data)
+                    if (!data.isError)
                     {
                         $.ajaxSetup({async : true});
                        /* window.location.href="http://localhost:9800/menu";*/
@@ -37,13 +38,20 @@ $(function ()
                     }
                     else
                     {
-                        alert("Vous n'avez pas les droits pour acceder à ce site");
+                        alert(data.messageRetour);
                         $.post("/Application/deconnect",function(){})
                     }
                 });
 
             }
         });
+
+    });
+
+    $(document).keypress(function(e) {
+        if(e.which == 13) {
+            $('#btn_connexion').click()
+        }
     });
 
     $('#p_lost_pswd').bind("click", function()
