@@ -16,6 +16,7 @@ $(function ()
         $.post('/SuiteRHCtrl/identifyUser', {'login': id, 'password':password}, function(retour)
         {
             var locat;
+            var isNew = 0;
             if (retour.isError)
             {
                 alert(retour.messageRetour);
@@ -24,21 +25,43 @@ $(function ()
             }
             else
             {
-                alert("identification réussie");
                 var currentUserId = retour ;
                 $.ajaxSetup({async : false});
-                $.post('/SuiteRHCtrl/checkAccess', {'id': currentUserId}, function(data)
+                $.post('/SuiteRHCtrl/checkAccess', {'id': currentUserId}, function(dataAccess)
                 {
-                    if (!data.isError)
+                    if (!dataAccess.isError)
                     {
-                        $.ajaxSetup({async : true});
-                       /* window.location.href="http://localhost:9800/menu";*/
-                        location.assign("http://localhost:9800/menu");
-
+                        $.ajaxSetup({async : false});
+                        $.post('/SuiteRHCtrl/checkPass', {"newPswd" : password}, function(dataPass)
+                        {
+                            if(!dataPass.isError)
+                            {
+                                $.ajaxSetup({async : false});
+                                $.post('/SuiteRHCtrl/checkExpiration',  function(dataExpiration)
+                                {
+                                    if(dataExpiration == null)
+                                    {
+                                        alert("identification réussie");
+                                        /* window.location.href="http://localhost:9800/menu";*/
+                                        location.assign("http://localhost:9800/menu");
+                                    }
+                                    else
+                                    {
+                                        alert(dataExpiration.messageRetour);
+                                        location.assign("http://localhost:9800/changePswd");
+                                    }
+                                });
+                            }
+                            else
+                            {
+                                alert("Mot de passe non conforme, vous allez être redirigé");
+                                location.assign("http://localhost:9800/changePswd");
+                            }
+                        });
                     }
                     else
                     {
-                        alert(data.messageRetour);
+                        alert(dataAccess.messageRetour);
                         $.post("/Application/deconnect",function(){})
                     }
                 });

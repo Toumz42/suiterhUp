@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Changer de mot de passe</title>
+    <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
+    <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/login.css'}">
+    <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/changePswd.css'}">
+    <script type="text/javascript" language="javascript" src="/public/javascripts/jquery-1.5.2.min.js"></script>
+    <script type="text/javascript" language="javascript" src="/public/javascripts/jquery-ui-1.10.4.custom/js/jquery-ui-1.10.4.custom.min.js"></script>
+    <script type="text/javascript" src="/public/javascripts/jquery.tmpl.js"></script>
+    <script type="text/javascript" language="JavaScript" src="public/javascripts/views/changePswd.js"></script>
+    <link rel="stylesheet" href="/public/stylesheets/jquery-ui.css">
+</head>
+<body>
+    <div id=connexion_div>
+        <span>
+            <img id="imgClient" src="/public/images/groupe-bernard-automobiles.png">
+            <label  id="title_connexion">Changer de mot de passe</label>
+        </span>
+        <span>
+            <div class="labelFilter">Ancien Mot de passe</div>
+            <input id="oldPswd" type="password" name="ancienMdp" autofocus class="inputLogin"/>
+        </span><br><br>
+        <span>
+            <div class="labelFilter">Nouveau mot de passe</div>
+            <input id="newPswd" type="password" class="inputLogin"/>
+        </span>
+        <span>
+            <div class="labelFilter">Retapez nouveau mot de passe</div>
+            <input id="reNewPswd" type="password" class="inputLogin"/>
+        </span>
+        <span>
+            <input id="btn_changePswd" type="button" value="Confirmer"  class="gbbutton">
+        </span>
+    </div>
+</body>
+</html>

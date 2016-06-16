@@ -22,6 +22,8 @@ public class Application extends Controller {
 
     public static  void demandes() { render(); }
 
+    public static void changePswd() { render(); }
+
 
     public static void identifyUser(String login, String pswd) {
         ErrorUtils retour = null;
@@ -75,6 +77,8 @@ public class Application extends Controller {
         renderJSON( ret );
 
     }
+
+
 
     public static void deconnect()
     {

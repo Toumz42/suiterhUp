@@ -4,6 +4,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import models.Absences;
 import models.Utilisateurs;
 import models.utils.ErrorUtils;
@@ -86,14 +87,16 @@ public class SuiteRHCtrl extends Controller {
             JsonElement tradeElement = parser.parse("["+data+"]");
             JsonArray trade = tradeElement.getAsJsonArray();
             JsonObject o = (JsonObject) trade.get(0);
-            String id = o.get("id").toString();
-            session.put("userId", id);
+            if(o.get("id") != null) {
+                String id = o.get("id").toString();
+                session.put("userId", id);
+                renderJSON(id);
+            }
 
-            renderJSON(id);
         }
         else
         {
-            renderJSON(ErrorUtils.createError(true,"Nope","error"));
+            renderJSON(ErrorUtils.createError(true,"Erreur dans la saisie des identifiants","error"));
         }
     }
 
@@ -130,11 +133,13 @@ public class SuiteRHCtrl extends Controller {
             JsonParser parser = new JsonParser();
             JsonElement tradeElement = parser.parse("["+data+"]");
             JsonArray trade = tradeElement.getAsJsonArray();
-            JsonObject o = (JsonObject) trade.get(0);
-            if (!o.has("isError")) {
-                isGood = trade.get(0).getAsBoolean();
+            if (!trade.get(0).isJsonPrimitive()) {
+                JsonObject o = (JsonObject) trade.get(0);
+                if (o.has("isError")) {
+                    message = o.get("messageRetour").toString();
+                }
             } else {
-                message = o.get("messageRetour").toString();
+                isGood = trade.get(0).getAsBoolean();
             }
 
 
@@ -146,9 +151,94 @@ public class SuiteRHCtrl extends Controller {
         }
         else
         {
-            renderJSON(ErrorUtils.createError(true,"Nope","error"));
+            renderJSON(ErrorUtils.createError(true,"Nop","error"));
         }
 
 
     }
+
+    public static void checkPass(String newPswd)
+    {
+        Utilisateurs u = Application.getCurrentUserObject();
+        Long id = u.id;
+        String urlParameters  =  "id=" + id + "&newPswd=" + newPswd;
+
+        String request  = SUITE_RH_URL + "/UtilisateursCtrl/checkPass?" ;
+        String data = UrlExecute.getJSONbyPost(request,urlParameters);
+
+        if(data != null && !data.equals(""))
+        {
+            renderJSON(data);
+        }
+
+    }
+
+/*    public static void modificationPswd(String newPswd)
+    {
+        Utilisateurs u = Application.getCurrentUserObject();
+        Long id = u.id;
+        String urlParameters  =  "id=" + id + "&newPswd=" + newPswd;
+        String request  = SUITE_RH_URL + "/UtilisateursCtrl/modificationPswd?" ;
+        String data = UrlExecute.getJSONbyPost(request,urlParameters);
+
+        renderJSON(data);
+
+    }*/
+
+    public static void changePswd(String oldPswd, String newPswd, String reNewPswd)
+    {
+        Utilisateurs u = Application.getCurrentUserObject();
+        Long id = u.id;
+        /*Vérifie si les champs sont bien remplis sinon retourne l'erreur*/
+
+        String urlParameters = "id=" + u.id + "&oldPswd=" + oldPswd + "&newPswd=" + newPswd + "&reNewPswd=" + reNewPswd;
+        String request = SUITE_RH_URL + "/UtilisateursCtrl/changePswd?";
+        String data = UrlExecute.getJSONbyPost(request, urlParameters);
+
+        if(data == null || data.equals(""))
+        {
+            /*Vérifie si le nouveau mot de passe est conforme sinon retourne l'erreur*/
+
+            String urlParametersCheck  =  "id=" + id + "&newPswd=" + newPswd;
+            String requestCheck  = SUITE_RH_URL + "/UtilisateursCtrl/checkPass?" ;
+            String dataCheck = UrlExecute.getJSONbyPost(requestCheck,urlParametersCheck);
+
+
+            if(dataCheck == null ||dataCheck.equals(""))
+            {
+                /*S'execute uniquement si tout est ok et modifie le mot de passe en DB*/
+
+                String urlParametersMod  =  "id=" + id + "&newPswd=" + newPswd;
+                String requestMod  = SUITE_RH_URL + "/UtilisateursCtrl/modificationPswd?" ;
+                String dataMod = UrlExecute.getJSONbyPost(requestMod,urlParametersMod);
+                renderJSON(dataMod);
+            }
+
+            else
+            {
+                /*Erreur de non conformité du mot de passe*/
+                renderJSON(dataCheck);
+            }
+
+        }
+
+        else
+        {
+            /*Erreur de saisie de champs*/
+            renderJSON(data);
+        }
+    }
+
+    public static void checkExpiration()
+    {
+        Utilisateurs u = Application.getCurrentUserObject();
+        Long id = u.id;
+        String urlParameters = "id=" + u.id;
+        String request = SUITE_RH_URL + "/UtilisateursCtrl/checkExpiration?";
+        String data = UrlExecute.getJSONbyPost(request, urlParameters);
+
+        renderJSON(data);
+
+    }
+
 }
