@@ -1,6 +1,9 @@
 #liste{
     margin-top: 10%;
+    position: absolute;
+    width: 100%;
 }
+
 .etat {
     position: relative;
     font-size: 20px;
@@ -13,7 +16,6 @@
 
 
 .absence{
-    border-bottom-style: groove;
     padding-bottom: 2%;
     padding-top: 2%;
 }
@@ -22,7 +24,7 @@
 .date{
     font-size: 40px;
     position:absolute;
-    width:300px;
+    width:450px;
     margin-top:80px;
     margin-left:80px;
 
@@ -34,30 +36,40 @@
     height:80px;
     float:left;
     margin-left: 2%;
+    font-weight: bold;
 }
 
+.duree{
+    font-size: 30px;
+    color: gray;
+}
+
+.type{
+    color: blue;
+    font-size: 35px;
+}
 summary{
     padding-top: 12px;
     padding-bottom: 12px;
 }
 
-.jaune{
-    background-color: yellow;
+.jaune, .jauneAffec{
+    background-image:linear-gradient(60deg,#fff100, #ffd400);
 }
 
-.rouge{
-    background-color: red;
+.rouge, .rougeAffec{
+    background-image:linear-gradient(60deg,#ff4000, #ff0000);
 }
 
-.vert{
-    background-color: #05ec05;
+.vert, .vertAffec{
+    background-image:linear-gradient(60deg,#87ff00, rgb(63, 255, 0));
 }
 
 .gris{
     background-color: grey;
 }
 
-.jaune, .rouge, .vert, .gris{
+.jaune, .rouge, .vert, .jauneAffec, .rougeAffec, .vertAffec{
     border-right-style: solid;
     border-bottom-style: solid;
     padding-bottom: 25px;
@@ -81,6 +93,7 @@ summary{
 .comm, .commentaire{
     transition: 0.3s ease-in-out;
     background-color: #F7F7F7;
+    max-height: inherit;
 
 }
 
@@ -103,30 +116,27 @@ summary{
 
 
 
-#liste{
-    position: fixed;
-    width: 100%;
-}
-
 .absence{
     display: block;
     position: relative;
     max-height: 15%;
     width: 100%;
+    border-bottom-style: solid;
+    border-bottom-color: #b8b8b8;
 }
 
 
-/*All borders to see boxes' size*/
+/*All borders to see boxes' size
 .date, .nom, .etat, .absence, .bouttons{
     border-style: ridge;
-}
+}*/
 
 .etat input{
     border-right-style: solid;
     border-bottom-style: solid;
     float: left;
     width: 100%;
-    height: 112%;
+    height: 120%;
     margin-right: 5%;
     background-color: inherit;
 }

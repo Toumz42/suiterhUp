@@ -44,7 +44,7 @@ and (orientation: portrait){
 	}
 
 	.gbbutton {
-
+		float: left;
 		display: inline-block;
 		margin-top: 5%;
 		margin-bottom: 5%;
@@ -70,6 +70,7 @@ and (orientation: landscape) {
 	}
 
 	.gbbutton {
+		float: left;
 		display: inline-block;
 		margin-top: 5%;
 		margin-bottom: 2%;
@@ -90,4 +91,6 @@ and (orientation : landscape)
 	#menuBoutton{
 		margin-top: 15%;
 	}
+
+
 }

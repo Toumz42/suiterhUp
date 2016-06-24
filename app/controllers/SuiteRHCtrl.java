@@ -232,12 +232,56 @@ public class SuiteRHCtrl extends Controller {
     public static void checkExpiration()
     {
         Utilisateurs u = Application.getCurrentUserObject();
-        Long id = u.id;
-        String urlParameters = "id=" + u.id;
-        String request = SUITE_RH_URL + "/UtilisateursCtrl/checkExpiration?";
-        String data = UrlExecute.getJSONbyPost(request, urlParameters);
 
-        renderJSON(data);
+        if(u != null)
+        {
+            String urlParameters = "id=" + u.id;
+            String request = SUITE_RH_URL + "/UtilisateursCtrl/checkExpiration?";
+            String data = UrlExecute.getJSONbyPost(request, urlParameters);
+            renderJSON(data);
+        }
+
+        else
+        {
+            ErrorUtils data = ErrorUtils.createError(true, "hfdsjfhsdjkfnhs", "Error");
+            renderJSON(data);
+        }
+    }
+
+    public static void changeEtatAbs(Long absId, String code, Integer niveau)
+    {
+        Utilisateurs u = Application.getCurrentUserObject();
+        String data;
+        if(u != null)
+        {
+            if (absId != null && code != null && niveau != null)
+            {
+                String urlParameters = "userId=" + u.id +
+                        "&absId=" + absId +
+                        "&code=" + code +
+                        "&niveau=" + niveau;
+                String request = SUITE_RH_URL + "/AbsencesCtrl/changeEtatAbsenceMobile?";
+                data = UrlExecute.getJSONbyPost(request, urlParameters);
+            }
+            else
+            {
+                data = "Un des paramètres est null";
+            }
+        }
+        else
+        {
+            data = "Utilisateur introuvable";
+        }
+        //Retourne null si tout va bien sinon l'erreur
+        if(data == null || data.equals(""))
+        {
+            renderJSON(ErrorUtils.createError(false,"ok",""));
+        }
+        else
+        {
+            renderJSON(ErrorUtils.createError(true, data, "Error"));
+        }
+
 
     }
 

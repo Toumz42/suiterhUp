@@ -7,7 +7,6 @@ $(function(){
     btn.addEventListener('click', function () {
         this.classList.toggle('open');
         container.classList.toggle('active');
-        msg.classList.toggle('transparent');
         nav.classList.toggle('ombre');
     });
 

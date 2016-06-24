@@ -70,7 +70,7 @@ public class Utilisateurs extends Model{
     public Boolean accesMobile;
     public Boolean activeMobile;
     public Integer compteurEssai;
-    public Date dateExpirationMdp;
+    public String dateExpirationMdp;
 
 
 

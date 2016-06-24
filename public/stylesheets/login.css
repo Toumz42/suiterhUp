@@ -130,9 +130,9 @@ and (orientation: portrait) {
 @media only screen
 and (orientation: landscape)
 {
+
     #connexion_div{
-        width: 50%;
-        max-height: 65%;
+
         margin-left: 25%;
         display: inline-block;
         margin-top: 1.5%;
@@ -151,7 +151,7 @@ and (orientation: landscape)
     #imgClient{
         float: left;
         width: 30%;
-        margin-top: -8%
+        margin-top: -8%;
     }
 
     form{
@@ -160,6 +160,7 @@ and (orientation: landscape)
     }
 
     .labelFilter {
+        margin-left: 10%;
         float: left;
         font-size: 35px;
         margin-bottom: 5px;
@@ -175,16 +176,15 @@ and (orientation: landscape)
     }
 
     #title_connexion {
-        margin-top: 10px;
         font-family: Arial, Helvetica, sans-serif, 'Lucida Grande';
         font-size: 40px;
         margin-left: 5%;
-        margin-bottom: 5%;
     }
 
     .inputLogin{
         width: 80%;
         font-size: 30px;
+        margin-left: 10%;
     }
 
     #btn_connexion {
@@ -197,6 +197,10 @@ and (orientation: landscape)
 
     .gbbutton{
         font-size: 35px;
+    }
+
+    #span_title{
+        margin-top: 10%;
     }
 
 }

@@ -21,7 +21,6 @@ $(function ()
             {
                 alert(retour.messageRetour);
                 $('#login').select();
-                alert("pas d'identification maggle");
             }
             else
             {
@@ -41,21 +40,20 @@ $(function ()
                                 {
                                     if(dataExpiration == null)
                                     {
-                                        alert("identification réussie");
                                         /* window.location.href="http://localhost:9800/menu";*/
-                                        location.assign("http://localhost:9800/menu");
+                                        location.assign("/menu");
                                     }
                                     else
                                     {
                                         alert(dataExpiration.messageRetour);
-                                        location.assign("http://localhost:9800/changePswd");
+                                        location.assign("/changePswd");
                                     }
                                 });
                             }
                             else
                             {
                                 alert("Mot de passe non conforme, vous allez être redirigé");
-                                location.assign("http://localhost:9800/changePswd");
+                                location.assign("/changePswd");
                             }
                         });
                     }

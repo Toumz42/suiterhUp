@@ -1,8 +1,16 @@
-/**
- * Created by Jonathan on 15/06/2016.
- */
-$(function()
+$(function ()
 {
+    $.post("/Application/getCurrentUser", function (ret) {
+        if (ret.isError) {
+            alert("Veuillez vous connecter")
+            window.location = '/login';
+        }
+        else {
+            /*alert(ret.messageRetour);*/
+            $("#hello").text(ret.messageRetour);
+        }
+    });
+
     $('#btn_changePswd').bind("click",function(){
 
         var oldPswd = $('#oldPswd').val();
@@ -27,7 +35,7 @@ $(function()
 
         });
     });
-
+    //Permet de confirmer avec la touche Entrée
     $(document).keypress(function(e) {
         if(e.which == 13) {
             $('#btn_changePswd').click()

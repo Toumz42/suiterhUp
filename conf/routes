@@ -4,10 +4,11 @@
 
 # Home page
 GET     /                                       Application.index
-*     /login                                    Application.login
+*       /login                                  Application.login
 GET     /menu                                   Application.menu
 GET     /demandes                               Application.demandes
 GET     /changePswd                             Application.changePswd
+
 # Ignore favicon requests
 GET     /favicon.ico                            404
 
