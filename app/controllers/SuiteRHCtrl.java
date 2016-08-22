@@ -18,6 +18,8 @@ import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 /**
  * Created by Jonathan on 06/06/2016.
@@ -25,7 +27,7 @@ import java.nio.charset.StandardCharsets;
 public class SuiteRHCtrl extends Controller {
 
     private static String SUITE_RH_URL = Play.configuration.get("application.suiteRH").toString();
-//    public static void getAbsence(Integer mois, Integer annee, String niveau, Boolean mesAbsences)
+    //    public static void getAbsence(Integer mois, Integer annee, String niveau, Boolean mesAbsences)
 //    {
 //        Utilisateurs u = Application.getCurrentUserObject();
 //        String url = SUITE_RH_URL + "/AbsencesCtrl/getAllByNiveauMobile?" +
@@ -46,14 +48,22 @@ public class SuiteRHCtrl extends Controller {
 //        }
 //
 //    }
-     public static void getAbsence(Integer mois, Integer annee, String niveau, Boolean mesAbsences)
+    public static void getAbsence(Integer mois, Integer annee, String niveau, Boolean mesAbsences)
     {
         Utilisateurs u = Application.getCurrentUserObject();
-        String urlParameters  =     "annee=" + annee +"&"+
-                                    "mois=" +mois+"&"+
-                                    "niveau=" +niveau+"&"+
-                                    "mesAbsences=" +mesAbsences+"&"+
-                                    "userId=" +u.id;
+
+        Map<String,Object> urlParameters = new LinkedHashMap<String, Object>();
+        urlParameters.put("annee",annee);
+        urlParameters.put("mois",mois);
+        urlParameters.put("niveau",niveau);
+        urlParameters.put("mesAbsences",mesAbsences);
+        urlParameters.put("userId",u.id);
+
+//        String urlParameters  =     "annee=" + annee +"&"+
+//                                    "mois=" +mois+"&"+
+//                                    "niveau=" +niveau+"&"+
+//                                    "mesAbsences=" +mesAbsences+"&"+
+//                                    "userId=" +u.id;
         String data = "";
         String request  = SUITE_RH_URL + "/AbsencesCtrl/getAllByNiveauMobile?" ;
 
@@ -72,8 +82,10 @@ public class SuiteRHCtrl extends Controller {
     public static void identifyUser(String login, String password)
     {
         Utilisateurs u = Application.getCurrentUserObject();
-        String urlParameters  =     "login=" + login +"&"+
-                                    "pswd=" +password;
+        Map<String,Object> urlParameters = new LinkedHashMap<String, Object>();
+        urlParameters.put("login",login);
+        urlParameters.put("pswd",password);
+
         String data = "";
         String request  = SUITE_RH_URL + "/Application/identifyUser?" ;
 
@@ -119,7 +131,8 @@ public class SuiteRHCtrl extends Controller {
     public static void checkAccess(Long id)
     {
 
-        String urlParameters  =  "id=" + id ;
+        Map<String,Object> urlParameters = new LinkedHashMap<String, Object>();
+        urlParameters.put("id",id);
         String data = "";
         String message = "Probleme de connexion";
         String request  = SUITE_RH_URL + "/UtilisateursCtrl/checkAccess?" ;
@@ -138,7 +151,8 @@ public class SuiteRHCtrl extends Controller {
                 if (o.has("isError")) {
                     message = o.get("messageRetour").toString();
                 }
-            } else {
+            }
+            else {
                 isGood = trade.get(0).getAsBoolean();
             }
 
@@ -161,7 +175,12 @@ public class SuiteRHCtrl extends Controller {
     {
         Utilisateurs u = Application.getCurrentUserObject();
         Long id = u.id;
-        String urlParameters  =  "id=" + id + "&newPswd=" + newPswd;
+
+        Map<String,Object> urlParameters = new LinkedHashMap<String, Object>();
+        urlParameters.put("id",id);
+        urlParameters.put("newPswd",newPswd);
+
+//        String urlParameters  =  "id=" + id + "&newPswd=" + newPswd;
 
         String request  = SUITE_RH_URL + "/UtilisateursCtrl/checkPass?" ;
         String data = UrlExecute.getJSONbyPost(request,urlParameters);
@@ -191,7 +210,13 @@ public class SuiteRHCtrl extends Controller {
         Long id = u.id;
         /*Vérifie si les champs sont bien remplis sinon retourne l'erreur*/
 
-        String urlParameters = "id=" + u.id + "&oldPswd=" + oldPswd + "&newPswd=" + newPswd + "&reNewPswd=" + reNewPswd;
+//        String urlParameters = "id=" + u.id + "&oldPswd=" + oldPswd + "&newPswd=" + newPswd + "&reNewPswd=" + reNewPswd;
+        Map<String,Object> urlParameters = new LinkedHashMap<String, Object>();
+        urlParameters.put("id",u.id);
+        urlParameters.put("newPswd", newPswd );
+        urlParameters.put("oldPswd", oldPswd);
+        urlParameters.put("reNewPswd", reNewPswd);
+
         String request = SUITE_RH_URL + "/UtilisateursCtrl/changePswd?";
         String data = UrlExecute.getJSONbyPost(request, urlParameters);
 
@@ -199,7 +224,10 @@ public class SuiteRHCtrl extends Controller {
         {
             /*Vérifie si le nouveau mot de passe est conforme sinon retourne l'erreur*/
 
-            String urlParametersCheck  =  "id=" + id + "&newPswd=" + newPswd;
+//            String urlParametersCheck  =  "id=" + id + "&newPswd=" + newPswd;
+            Map<String,Object> urlParametersCheck = new LinkedHashMap<String, Object>();
+            urlParametersCheck.put("id",id);
+            urlParametersCheck.put("newPswd",newPswd);
             String requestCheck  = SUITE_RH_URL + "/UtilisateursCtrl/checkPass?" ;
             String dataCheck = UrlExecute.getJSONbyPost(requestCheck,urlParametersCheck);
 
@@ -208,7 +236,10 @@ public class SuiteRHCtrl extends Controller {
             {
                 /*S'execute uniquement si tout est ok et modifie le mot de passe en DB*/
 
-                String urlParametersMod  =  "id=" + id + "&newPswd=" + newPswd;
+//                String urlParametersMod  =  "id=" + id + "&newPswd=" + newPswd;
+                Map<String,Object> urlParametersMod = new LinkedHashMap<String, Object>();
+                urlParametersMod.put("id",id);
+                urlParametersMod.put("newPswd",newPswd);
                 String requestMod  = SUITE_RH_URL + "/UtilisateursCtrl/modificationPswd?" ;
                 String dataMod = UrlExecute.getJSONbyPost(requestMod,urlParametersMod);
                 renderJSON(dataMod);
@@ -232,13 +263,18 @@ public class SuiteRHCtrl extends Controller {
     public static void checkExpiration()
     {
         Utilisateurs u = Application.getCurrentUserObject();
-
         if(u != null)
         {
-            String urlParameters = "id=" + u.id;
+            Long id = u.id;
+//          String urlParameters = "id=" + u.id;
+            Map<String,Object> urlParameters = new LinkedHashMap<String, Object>();
+            urlParameters.put("id",u.id);
+
             String request = SUITE_RH_URL + "/UtilisateursCtrl/checkExpiration?";
             String data = UrlExecute.getJSONbyPost(request, urlParameters);
+
             renderJSON(data);
+
         }
 
         else
@@ -256,31 +292,34 @@ public class SuiteRHCtrl extends Controller {
         {
             if (absId != null && code != null && niveau != null)
             {
-                String urlParameters = "userId=" + u.id +
-                        "&absId=" + absId +
-                        "&code=" + code +
-                        "&niveau=" + niveau;
+//                String urlParameters = "userId=" + u.id +
+//                        "&absId=" + absId +
+//                        "&code=" + code +
+//                        "&niveau=" + niveau;
+
+                Map<String,Object> urlParameters = new LinkedHashMap<String, Object>();
+                urlParameters.put("userId",u.id);
+                urlParameters.put("absId",absId);
+                urlParameters.put("code",code);
+                urlParameters.put("niveau",niveau);
+
                 String request = SUITE_RH_URL + "/AbsencesCtrl/changeEtatAbsenceMobile?";
                 data = UrlExecute.getJSONbyPost(request, urlParameters);
             }
             else
             {
                 data = "Un des paramètres est null";
+                renderJSON(ErrorUtils.createError(true, data, "Error"));
             }
         }
         else
         {
             data = "Utilisateur introuvable";
-        }
-        //Retourne null si tout va bien sinon l'erreur
-        if(data == null || data.equals(""))
-        {
-            renderJSON(ErrorUtils.createError(false,"ok",""));
-        }
-        else
-        {
             renderJSON(ErrorUtils.createError(true, data, "Error"));
         }
+        //Retourne null si tout va bien sinon l'erreur
+
+        renderJSON(ErrorUtils.createError(false,"ok",""));
 
 
     }

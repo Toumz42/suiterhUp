@@ -1,8 +1,10 @@
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Demandes absences</title>
     <meta charset="UTF-8">
+    <title>Menu</title>
     <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
     <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/demandes.css'}">
     <script type="text/javascript" language="javascript" src="/public/javascripts/jquery-1.5.2.min.js"></script>
@@ -13,10 +15,57 @@
 </head>
 <body class="myBody">
 #{header /}
-<div id="liste">
+<div id="dataContainer">
     *{Conteneurs de données }*
     <input type='text' id='idSelected' style='display: none'>
     <input type='text' id='niveauSelected' style='display: none'>
 </div>
 
+<div class="wrapper_abs_mobiles" style="height: 100%;overflow: scroll;position: absolute;width: 100%;">
+    <div class="w99" style="display: inline-block">
+        <span class="moisFiltre" style=" margin-top: 40px ;position: absolute">
+            <span class="labelFilter" style="margin-left:20px; width: auto; font-size: 40px">Mois</span>
+            <span>
+                <select id="filtre_mois" style="margin-left: 50px ; font-size: 40px; height: 50px ;width: 250px;">
+                    <option style="font-size: 20px" value="-1">Tous</option>
+                    <option style="font-size: 20px" value="1">Janvier</option>
+                    <option style="font-size: 20px" value="2">Février</option>
+                    <option style="font-size: 20px" value="3">Mars</option>
+                    <option style="font-size: 20px" value="4">Avril</option>
+                    <option style="font-size: 20px" value="5">Mai</option>
+                    <option style="font-size: 20px" value="6">Juin</option>
+                    <option style="font-size: 20px" value="7">Juillet</option>
+                    <option style="font-size: 20px" value="8">Août</option>
+                    <option style="font-size: 20px" value="9">Septembre</option>
+                    <option style="font-size: 20px" value="10">Octobre</option>
+                    <option style="font-size: 20px" value="11">Novembre</option>
+                    <option style="font-size: 20px" value="12">Décembre</option>
+                </select>
+            </span>
+        </span>
+        <span class="anneeFiltre" style=" right:50px; margin-top: 40px ;position: absolute">
+            <span class="labelFilter" style="width: auto; font-size: 40px">Année</span>
+            <span>
+                <select id="filtre_annee" style="margin-left: 10px ; font-size: 40px; height: 50px ;width: 250px;">
+
+                </select>
+            </span>
+        </span>
+        <span class="niveauFiltre" style=" left:20px; margin-top: 100px ;position: absolute">
+            <span class="labelFilter" style="width: auto; font-size: 40px">Niveau</span>
+            <span>
+                <select id="filtre_niveau" style="margin-left: 10px ; font-size: 40px; height: 50px ;width: 250px;">
+                    <option style="font-size: 20px" value="-1">Tous</option>
+                    <option style="font-size: 20px" value="1">Un Niveau</option>
+                    <option style="font-size: 20px" value="2">Deux Niveaux</option>
+                </select>
+            </span>
+        </span>
+    </div>
+    <div id="liste" style="margin-top: 150px; display: inline-block; position: absolute;" >
+
+
+    </div>
+</div>
 </body>
+</html>

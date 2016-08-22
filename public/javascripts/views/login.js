@@ -84,7 +84,7 @@ $(function ()
         }
         else
         {
-            if (confirm("Un mail vous sera envoyé à votre adresse avec vos identifiants de connections"))
+            if (confirm("Un mail vous sera envoyé à votre adresse avec vos identifiants de connexion"))
             {
                 $.post('/application/envoyerMdp', {'login': id}, function(retour)
                 {

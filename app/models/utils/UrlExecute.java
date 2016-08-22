@@ -3,11 +3,10 @@ package models.utils;
 import play.Play;
 
 import java.io.*;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLConnection;
+import java.net.*;
 import java.nio.charset.StandardCharsets;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created with IntelliJ IDEA.
@@ -81,13 +80,27 @@ public class UrlExecute {
         }
         return null;
     }
-    public static String getJSONbyPost(String requestUrl, String urlParameters) {
-        @SuppressWarnings("Since15") byte[] postData = urlParameters.getBytes( StandardCharsets.UTF_8 );
+    public static String getJSONbyPost(String requestUrl, Map<String,Object> params) {
+
+        StringBuilder postData = new StringBuilder();
+        for (Map.Entry<String,Object> param : params.entrySet()) {
+            if (postData.length() != 0) postData.append('&');
+            try {
+                postData.append(URLEncoder.encode(param.getKey(), "UTF-8"));
+                postData.append('=');
+                postData.append(URLEncoder.encode(String.valueOf(param.getValue()), "UTF-8"));
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+        }
+
+
+        @SuppressWarnings("Since15") byte[] postDataBytes = postData.toString().getBytes( StandardCharsets.UTF_8 );
         HttpURLConnection conn = null;
         int status = 0;
         try {
             URL url = new URL( requestUrl );
-            int postDataLength = postData.length;
+            int postDataLength = postDataBytes.length;
             conn = (HttpURLConnection) url.openConnection();
             conn.setDoOutput( true );
             conn.setInstanceFollowRedirects( false );
@@ -98,7 +111,7 @@ public class UrlExecute {
             conn.setUseCaches( false );
 
             DataOutputStream wr = new DataOutputStream( conn.getOutputStream());
-            wr.write( postData );
+            wr.write( postDataBytes );
             status = conn.getResponseCode();
             switch (status) {
                 case 200:
